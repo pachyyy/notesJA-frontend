@@ -73,3 +73,51 @@ app.listen(port, () => {
 });
 ```
 I have updated the `README.md` file with this information.
+
+---
+
+## Deploying to Vercel
+
+Vercel is a cloud platform for static sites and Serverless Functions that fits perfectly with React applications. Here's a step-by-step guide to deploying this application to Vercel.
+
+### 1. Prerequisites
+
+*   **Vercel Account:** You'll need a Vercel account. You can sign up for a free account at [vercel.com](https://vercel.com).
+*   **Vercel CLI:** Install the Vercel CLI on your local machine.
+    ```bash
+    npm install -g vercel
+    ```
+
+### 2. Configuration
+
+I have already created a `vercel.json` file in the root of the project. This file tells Vercel how to build the application.
+
+### 3. Deployment Steps
+
+1.  **Log in to Vercel:**
+    ```bash
+    vercel login
+    ```
+    This will open a new browser window to log you in.
+
+2.  **Set Up Environment Variables:**
+    You need to set the `REACT_APP_API_URL` environment variable on Vercel to point to your deployed backend API.
+
+    *   **Add the environment variable:**
+        ```bash
+        vercel env add REACT_APP_API_URL
+        ```
+        You will be prompted to enter the value for the variable. This should be the URL of your deployed backend API (e.g., `https://your-api-url.com/api`).
+    *   **Link the project:**
+        When you deploy for the first time, Vercel will ask you to link your local project to a Vercel project. You can create a new one or link to an existing one.
+
+3.  **Deploy:**
+    Run the following command to deploy your application:
+    ```bash
+    vercel --prod
+    ```
+    This will deploy your application to production and provide you with a URL to your live site.
+
+### 4. Backend Deployment
+
+This guide only covers the deployment of the frontend application. You will also need to deploy your backend API separately. Once your backend is deployed, use its URL as the value for the `REACT_APP_API_URL` environment variable in Vercel.
